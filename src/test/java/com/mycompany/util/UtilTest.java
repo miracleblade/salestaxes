@@ -4,6 +4,7 @@
 package com.mycompany.util;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -33,13 +34,10 @@ public class UtilTest {
     @Test
     public void testRoundNearest05() {
         
-        assertEquals(Util.createBigDecimal(0.1),Util.roundNearest05(new BigDecimal(0.08)));
-        
-        assertEquals(Util.createBigDecimal(0.05),Util.roundNearest05(new BigDecimal(0.04)));
-        
-        assertEquals(Util.createBigDecimal(1),Util.roundNearest05(new BigDecimal(1)));
-        
-        assertEquals(Util.createBigDecimal(1.1),Util.roundNearest05(new BigDecimal(1.08)));
+        assertTrue(Util.createBigDecimal(0.10).compareTo(Util.roundNearest05(new BigDecimal(0.08))) == 0);
+        assertTrue(Util.createBigDecimal(0.05).compareTo(Util.roundNearest05(new BigDecimal(0.04))) == 0);
+        assertTrue(Util.createBigDecimal(1).compareTo(Util.roundNearest05(new BigDecimal(1))) == 0);
+        assertTrue(Util.createBigDecimal(1.1).compareTo(Util.roundNearest05(new BigDecimal(1.08))) == 0);
         
         
     }
