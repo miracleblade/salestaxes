@@ -16,6 +16,13 @@ public interface Good {
      * @return 
      */
     BigDecimal getPrice();
+    
+    /**
+     * Return the price of the object, tax excluded
+     * @return 
+     */
+    BigDecimal getFreeTaxPrice();
+    
     /**
      * Return the description of the good
      * @return 

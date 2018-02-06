@@ -1,0 +1,4 @@
+#description,price,category,imported(true/false)
+book,12.49,book,false
+music CD,14.99,music,false
+chocolate bar,0.85,food,false

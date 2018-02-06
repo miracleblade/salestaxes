@@ -1,0 +1,5 @@
+#description,price,category,imported(true/false)
+imported bottle of perfume,27.99,other,true
+bottle of perfume,18.99,other,false
+packet of headache pills,9.75,medicine,false
+box of imported chocolates,11.25,food,true

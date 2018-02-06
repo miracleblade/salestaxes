@@ -1,28 +1,25 @@
 /*
  * 
  */
-package com.mycompany.dto;
+package com.mycompany.util;
 
 import java.math.BigDecimal;
 
 /**
- * Represent generic good
+ *
  * @author cristian.giardina
  */
-public class FreeTaxGood implements Good{
-
+public class RawGood {
+    
+    
     private String description;
     private BigDecimal price;
+    private String category;
+    private boolean imported;
 
-    public FreeTaxGood() {
+    public RawGood() {
     }
 
-    public FreeTaxGood(String description, BigDecimal price) {
-        this.description = description;
-        this.price = price;
-    }
-    
-    @Override
     public String getDescription() {
         return description;
     }
@@ -31,7 +28,6 @@ public class FreeTaxGood implements Good{
         this.description = description;
     }
 
-    @Override
     public BigDecimal getPrice() {
         return price;
     }
@@ -40,14 +36,20 @@ public class FreeTaxGood implements Good{
         this.price = price;
     }
 
-    @Override
-    public BigDecimal getTax() {
-        return BigDecimal.ZERO;
+    public String getCategory() {
+        return category;
     }
 
-    @Override
-    public BigDecimal getFreeTaxPrice() {
-        return price;
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public boolean isImported() {
+        return imported;
+    }
+
+    public void setImported(boolean imported) {
+        this.imported = imported;
     }
     
     

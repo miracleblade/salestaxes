@@ -16,7 +16,7 @@ public class Bill {
 
     private Collection<Good> goods;
 
-    private BigDecimal totalTaxes = BigDecimal.ZERO;
+    private BigDecimal totalFreeTaxes = BigDecimal.ZERO;
     private BigDecimal total = BigDecimal.ZERO;
     
     
@@ -34,12 +34,13 @@ public class Bill {
         goods.forEach(g ->{
             
             total = total.add(g.getPrice());
-            totalTaxes = totalTaxes.add(g.getTax());
-            System.out.printf("GOOD %s %f %f\n" , g.getDescription(),g.getPrice(),g.getTax());
+            totalFreeTaxes = totalFreeTaxes.add(g.getFreeTaxPrice());
+            System.out.printf("%s: %.2f   \n" , g.getDescription(),g.getPrice());
             
             });
-        System.out.printf("%f\n" , total);
-        System.out.printf("%f\n" ,totalTaxes);
+        System.out.printf("\t Sales taxes: %.2f\n" ,total.subtract(totalFreeTaxes));
+        System.out.printf("\t Total: %.2f\n" , total);
+        
         
         
     }

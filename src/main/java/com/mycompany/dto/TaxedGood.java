@@ -3,9 +3,11 @@
  */
 package com.mycompany.dto;
 
+import com.mycompany.util.Util;
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.math.RoundingMode;
+
+import static com.mycompany.util.Util.roundNearest05;
 
 /**
  *
@@ -23,6 +25,7 @@ public class TaxedGood implements Good{
 
     
     
+    @Override
     public BigDecimal getTax() {
         
         BigDecimal tax = applyTax();
@@ -31,21 +34,23 @@ public class TaxedGood implements Good{
     }
 
     private BigDecimal applyTax() {
-        BigDecimal tax = good.getPrice().multiply(taxRate).divide(BigDecimal.valueOf(100)).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal tax = good.getFreeTaxPrice().multiply(taxRate).divide(Util.createBigDecimal(100));
         return tax;
     }
 
-    private BigDecimal roundNearest05(BigDecimal tax) {
-        tax = tax.multiply(BigDecimal.valueOf(20)).divide(BigDecimal.valueOf(20)).setScale(2,RoundingMode.HALF_UP);
-        return tax;
-    }
-
+    @Override
     public BigDecimal getPrice() {
         return good.getPrice().add(getTax());
     }
 
+    @Override
     public String getDescription() {
         return good.getDescription();
+    }
+
+    @Override
+    public BigDecimal getFreeTaxPrice() {
+        return good.getFreeTaxPrice();
     }
     
 }
