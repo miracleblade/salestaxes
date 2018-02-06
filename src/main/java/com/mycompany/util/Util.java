@@ -62,7 +62,7 @@ public class Util {
     
     
     public static BigDecimal createBigDecimal(double d){
-        return new BigDecimal(d,MathContext.DECIMAL64);
+        return new BigDecimal(d,MathContext.DECIMAL64).setScale(6, RoundingMode.HALF_UP);
     }
     
     
