@@ -59,7 +59,7 @@ public class TaxedGoodTest extends TestCase {
         
         //import duty
         good = new TaxedGood(good, Constants.IMPORT_DUTY_TAX);
-        assertEquals(createBigDecimal(0.6).setScale(2),good.getTax().setScale(2));//this should be 0.55 ( 11.25 * 5% = 0,5625 -> 0.55 as nearest 0.05)
+        assertEquals(createBigDecimal(0.55).setScale(2),good.getTax().setScale(2));//this should be 0.55 ( 11.25 * 5% = 0,5625 -> 0.55 as nearest 0.05)
         assertEquals(createBigDecimal(11.85).setScale(2),good.getPrice().setScale(2));
         
     }
